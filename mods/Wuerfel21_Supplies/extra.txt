@@ -1,0 +1,14 @@
+
+group Wuerfel21_Supplies {
+	-path textures-new
+	-texture
+	-palette Main
+	-downscale 1 2
+	-pixelpack xd_wrap		// textures should wrap by default
+
+        -lightlevel    255 1.0
+        -lightlevel    128 0.5
+	gfx SUPPLIES {
+		-pixelpack xd		// make exception: this texture should NOT wrap
+	}
+}

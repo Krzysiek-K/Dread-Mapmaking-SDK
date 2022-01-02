@@ -1,0 +1,6 @@
+LaBodilsen - DS_Portland (RC01) 
+
++ added geometry
++ reduced in buffer size needed (185KB)
++ using 'Patron exe only' deaf enemy's and damaging floor
+- Introduced spelling error in folder name

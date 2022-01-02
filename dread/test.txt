@@ -1,0 +1,71 @@
+
+gfxgroup Test {
+	-path test
+	-masked
+	-object
+	-palette Main {
+		-colorspace rgb
+	}
+
+	gfx CUTTLEFISH	0 0 {
+		-lanczos 170 346 8 8 
+	}
+
+	gfx CUTTLEFISH_HD	0 0 {
+		-palette * {
+			-dither solid
+		}
+		-lanczos 170 346 4 8  pack
+	}
+
+//	group Slug {
+//		-masked
+//		-object
+//		-palette MainDither
+//		-path objects/monster-slug
+//		-downscale 1 2
+//		-pixelpack xd_narrow
+//
+//		#gfx M_SLUG_0	43 52
+//		gfx M_SLUG_1	43 72
+//		gfx M_SLUG_2	33 52
+//		gfx M_SLUG_3	27 52
+//		gfx M_SLUG_4	33 52
+//		gfx M_SLUG_5	28 52
+//	
+//		anim Walk {
+//			frame   80 M_SLUG_3
+//			frame   80 M_SLUG_4
+//			frame   80 M_SLUG_5
+//			frame   80 M_SLUG_4
+//		}
+//
+//		anim Attack {
+//			frame   48 M_SLUG_5
+//			frame   48 M_SLUG_1
+//			frame   72 M_SLUG_2
+//			frame   48 M_SLUG_3
+//			frame   300 M_SLUG_4
+//		}
+//
+//		anim Sequence {
+//			frame   80 M_SLUG_3
+//			frame   80 M_SLUG_4
+//			frame   80 M_SLUG_5
+//			frame   80 M_SLUG_4
+//			frame   80 M_SLUG_3
+//			frame   80 M_SLUG_4
+//			frame   80 M_SLUG_5
+//			frame   80 M_SLUG_4
+//			frame   80 M_SLUG_3
+//			frame   80 M_SLUG_4
+//			frame   80 M_SLUG_5
+//			frame   80 M_SLUG_4
+//			frame   48 M_SLUG_5
+//			frame   48 M_SLUG_1
+//			frame   72 M_SLUG_2
+//			frame   48 M_SLUG_3
+//			frame   300 M_SLUG_4
+//		}
+//	}
+}

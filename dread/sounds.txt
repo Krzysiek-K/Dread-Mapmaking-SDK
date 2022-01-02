@@ -1,0 +1,642 @@
+
+group "Sounds" {
+
+	group Samples {
+		-path sounds 
+		-audio_resample 8000
+		//-audio_resample 11025
+		sound	E_die
+		sound	E_growl
+		sound	E_pain
+		sound	V_doors_a {
+			-audio_gain 1.2
+		}
+		sound	V_doors_b {
+			-audio_gain 1.2
+		}
+		sound	V_explosion
+		sound	V_pow {
+			-audio_resample 8000
+		}
+		sound	V_select {
+			-audio_resample 8000
+		}
+		sound	V_teleport {
+			-audio_gain 1.5
+		}
+		sound	W_chaingun {
+			-audio_resample 8000
+		}
+		sound	W_empty
+		sound	W_mlauncher
+		sound	W_pistol
+		sound	W_shotgun
+		sound	W_shtgn_Ra
+		sound	W_shtgn_Rb
+	}
+
+	group Weapons {
+
+		trksound DSPISTOL {
+			1	S	W_pistol		64	+0		// wait 1, 'S'top audio, program sample, volume 64, pitch +0c
+			+	-	XXX				--	--		// on interrupt (+), queue zero sample (XXX)
+			+	E	---				 0	--		// on next interrupt (+), 'E'nd sound completely, volume 0
+		}
+		trksound DSSHOTGN {
+			1	S	W_shotgun		64	+0
+			+	-	XXX				--	--
+
+			17	S	W_shtgn_Rb		64	-5
+			12	S	W_shtgn_Rb		64	+4
+
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSSHTGN2 {
+			1	S	W_shotgun		64	-1
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSLOAD {
+			1	S	W_shtgn_Rb		64	-5
+			8	S	W_shtgn_Ra		64	0
+			4	S	W_shtgn_Rb		64	+4
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSCHGN {
+			1	S	W_chaingun		50	+0
+			+	-	XXX				--	--
+			2	-	---     		30	+0
+			+	E	---				 0	--
+			+	-	XXX				--	--
+		}
+		trksound DSCHGN2 {
+			1	S	W_chaingun		50	+1
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSCHGN3 {
+			1	S	W_pistol		64	+7
+			+	-	XXX				--	--
+			+	E	---				 0	--
+			2	-	---				--	+3
+			2	-	---				--	-1
+		}
+		trksound DSCHGN3S {
+			2	S	W_shtgn_Rb		64	 10
+			2	-	---				--	-16
+			2	-	---				--	-15
+			2	-	---				--	-14
+			2	-	---				--	-13
+			2	-	---				--	-12
+			2	-	---				--	-11
+			2	-	---				--	-10
+			2	-	---				--	 -9
+			2	-	---				--	 -8
+			2	-	---				--	 -7
+			2	-	---				--	 -6
+			2	-	---				--	 -5
+			2	-	---				--	 -4
+			2	-	---				--	 -3
+			2	-	---				--	 -2
+			2	-	---				--	 -1
+			2	-	---				--	  0
+			2	-	---				--	  1
+			2	-	---				--	  2
+			2	-	---				--	  3
+			2	-	---				--	  4
+			2	-	---				--	  5
+			2	-	---				--	  6
+			30   E	XXX				 0   --
+		}
+		trksound DSCHGN3E {
+			 1	S	W_shtgn_Rb		64	 10
+			 2	-	---				--	  6
+			 2	-	---				--	  5
+			 2	-	---				--	  4
+			 2	-	---				--	  3
+			 2	-	---				--	  2
+			 2	-	---				--	  1
+			 2	-	---				--	  0
+			 2	-	---				--	 -1
+			 2	-	---				--	 -2
+			 2	-	---				--	 -3
+			 2	-	---				--	 -4
+			 2	-	---				--	 -5
+			 2	-	---				--	 -6
+			 2	-	---				--	 -7
+			 2	-	---				--	 -8
+			 2	-	---				--	 -9
+			 2	-	---				--	-10
+			 2	-	---				--	-11
+			 2	-	---				--	-12
+			 2	-	---				--	-13
+			 2	-	---				--	-14
+			 2	-	---				--	-15
+			 2	-	---				--	-16
+			10	-	---				--	 10
+			 5	E	XXX				 0	--
+		}
+		trksound DSRLAUNC {
+			1	S	W_pistol		64	 0
+			3	S	W_mlauncher		64	-7
+			+	-	XXX				--	--
+			+	E	---				 0	--
+			3	-	---				--	 0
+			3	-	---				--	-0.50
+			3	-	---				--	-1.00
+			3	-	---				--	-1.50
+			3	-	---				--	-2.00
+			3	-	---				--	-2.50
+			3	-	---				--	-3.00
+		}
+	}
+
+	group "Monsters" {
+		trksound DSPOPAIN {
+			1	S	E_pain			64	-12
+			+	-	XXX				--	 --
+			+	E	---				 0	 --
+			3	-	---				50	 -3
+		}
+		trksound DSPOPAIN2 {
+			1	S	E_pain			50	-4
+			+	-	XXX				50	--
+			+	E	---				 0	--
+			7	-	---				50	-9
+		}
+		trksound DSPOPAIN3 {
+			1	S	E_pain			64	-8
+			+	-	XXX				--	--
+			1	-	---				50	-3
+			3	-	---				50	--
+			3	-	---				40	--
+			3	-	---				30	--
+			3	-	---				20	--
+			3	-	---				10	--
+			1	E	---				 0	--
+
+		}
+		trksound DSPOPAIN4 {
+			1	S	E_pain			64	-3
+			+	-	XXX				--	--
+			1	-	---				50	-7
+			3	-	---				50	--
+			3	-	---				40	--
+			3	-	---				30	--
+			3	-	---				20	--
+			3	-	---				10	--
+			1	E	---				 0	--
+
+		}
+		trksound DSPODTH1 {
+			1	S	E_die			64	 0
+			+	-	XXX				--	--
+			+	-	---				 0	--
+			8	-	---				64	--
+			4	-	---				50	--
+			4	-	---				30	-1
+			5	S	W_mlauncher		 7	-6
+			+	-	XXX				--	--
+			4	-	---				 5	-2
+			+	E	---				 0	--
+			8	E	---				 0	--
+		}
+		trksound DSPODTH2 {
+			 1	S	E_die			55	-2
+			+	-	XXX				--	--
+			20	-	---				40	-5
+			 5	-	---				30	-6
+			 5	-	---				25	-7
+			 5	-	---				20	-8
+			10	S	W_mlauncher		 8	-9
+			 +	-	XXX				--	--
+			15	E	---				 0	--
+		}
+		trksound DSRESP1 {
+			1	S	E_die			10	-12
+			+	-	XXX				--	 --
+			+	E	---				 0	 --
+			3	-	---				20	-11.5
+			3	-	---				30	-11
+			3	-	---				40	-10.5
+			3	-	---				50	-10
+			3	-	---				60	 -9.5
+			3	-	---				64	 -9
+			3	-	---				--	 -8.5
+			3	-	---				--	 -8
+		}
+		trksound DSRESP2 {
+			1	S	E_die			64	-20
+			+	-	XXX				--	--
+			+	E	---				 0	--
+			3	-	---				20	-19.5
+			3	-	---				30	-19
+			3	-	---				40	-18.5
+			3	-	---				50	-18
+			3	-	---				60	-17.5
+			3	-	---				64	-17
+			3	-	---				--	-16.5
+			3	-	---				--	-16
+		}
+		trksound DSHEADATK {
+			1	S	V_teleport		64	+0
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSHEADPAIN1 {
+			1	S	E_growl			64	-5
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSHEADPAIN2 {
+			1	S	E_growl			64	+0
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSHEADDTH {
+			 1	S	E_growl			64	-15
+			 +	-	XXX				--	 --
+			 5	-	---				50	-10
+			 5	-	---				40	-15
+			 5	-	---				30	 --
+			 5	-	---				20	 --
+			 4	S	E_growl			 9	+10
+			 +	-	XXX				--	 --
+			 2	-	---				--	 +0
+			15	E	---				 0	 --
+		}
+		trksound DSHEADRESP {
+			1	S	E_growl			64	-25
+			+	-	XXX				--	--
+			+	E	---				 0	--
+			3	-	---				20	-24.5
+			3	-	---				30	-24
+			3	-	---				40	-23.5
+			3	-	---				50	-23
+			3	-	---				60	-22.5
+			3	-	---				64	-22
+			3	-	---				--	-21.5
+			3	-	---				--	-21
+		}
+	}
+
+	group Items {
+		trksound DSITEMUP {
+			1	S	V_pow			32	-5
+			+	-	XXX				--	--
+			3	S	V_pow			40	+0
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSITEMUP2 {
+			1	S	W_shtgn_Ra		64	  0
+			5	S	W_empty			32	  0
+			5	S	V_teleport		32	 +5
+			5	S	V_select		20	 -5
+			+	-	---				20	+10
+			+	E	---				 0	 --
+		}
+		trksound DSITEMUP3 {
+			5	S	V_teleport		32	+5
+			5	S	V_select		--	-5
+			+	-	---				--	+5
+			+	E	---				 0	--
+			1	S	W_shtgn_Ra		64	-0
+			5	S	W_empty			32	-5
+			1	E	---				 0	--
+		}
+		trksound DSARMOR1 {
+			1	S	W_shtgn_Ra		64	 -5
+			3	S	V_teleport		40	  5
+			3	-	XXX				20	 -- 
+			5	S	W_empty			32	  5 
+			5	S	V_pow			40	-15
+			7	-	---				14	-15
+			2	-	---				--	-19
+			7	-	---				14	-18.50
+			2	-	---				--	-18
+			2	S	V_select		10	 -5
+			+	-	---				 5	+10
+			1	E	---				 0	 --
+		}
+		trksound DSMEDI1 {
+			1	S	W_shtgn_Ra		64	  5
+			3	S	W_empty			32	  0
+			3	S	V_teleport		10	+10
+			3	-	---				20	 --
+			5	S	V_pow			40	-15
+			7	-	XXX				--	 --
+			1	S	V_pow			14	-15
+			7	-	XXX				--	 --
+			1	S	V_pow			 7	-15
+			7	-	XXX				--	 --
+			1	S	V_pow			 5	-15
+			7	-	XXX				--	 --
+			1	S	V_pow			 2	-15
+			7	-	XXX				--	 --
+			1	S	V_pow			 1	-15
+			5	E	---				 0	 --
+		}
+		trksound DSKEYPICK {
+			1	S	W_empty			32	 +0
+			5	S	V_teleport		10	 +0
+			5	S	W_shtgn_Ra		64	 +0
+			5	S	V_select		32	 +5
+			+	-	---				--	 -5
+			+	-	---				--	+10
+			+	-	---				--	 +0
+			+	-	---				--	 +7
+			+	-	---				--	 -5
+			+	-	---				 5	 -5
+			+	-	---				 2	 -5
+			+	-	---				 1	 -5
+			+	-	---				--	 -5
+			+	E	---				 0	 --
+		}
+		trksound DSWPNUP {
+			1	S	W_shtgn_Rb		64	 0
+			3	-	---				--	-9
+			6	S	W_shtgn_Rb		--	+4
+			6	S	W_shtgn_Rb		--	-3
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSDBLOAD {
+			1	S	W_shtgn_Rb		64	+3
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSAMMO {
+			 1	S	W_shtgn_Rb		64	+3
+			 +	-	XXX				--	--
+			10	S	W_shtgn_Rb		64	+3
+			 2	S	W_empty  		20	+3
+			 +	-	XXX				--	--
+			 +	E	---				 0	--
+		}
+		trksound DSAMMO2 {
+			1	S	W_shtgn_Rb		64	+3
+			+	-	XXX				--	--
+			7	S	V_teleport		10	+3
+			7	S	W_shtgn_Rb		64	+3
+			3	S	W_empty  		20	+3
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSWEAP1 {
+			 1	S	W_empty  		64	-1
+			 1	S	W_empty  		40	 0
+			 1	S	W_shtgn_Rb		64	 0
+			 +	-	XXX				--	--
+			10	S	V_teleport		32	+5
+			 5	S	V_select		20	-5
+			 +	-	---				10	+5
+			 +	E	---				 0	--
+			 1	S	W_shtgn_Ra		64	 0
+			 5	S	W_empty			32	-5
+			 1	E	---				 0	--
+		}
+		trksound DSWEAP2 {
+			 1	S	W_empty  		64	-1
+			 1	S	W_empty  		40	 0
+			 1	S	W_shtgn_Rb		64	 0
+			 +	-	XXX				--	--
+			10	S	V_teleport		32	+5
+			 5	S	V_select		20	-5
+			 1	S	W_shtgn_Ra		64	 0
+			 5	S	W_empty			32	-5
+			 1	E	---				 0	--
+		}
+		trksound DSWEAP3 {
+			1	S	W_empty  		64	-1
+			1	S	W_empty  		40	 0
+			1	S	W_shtgn_Rb		64	 0
+			+	-	XXX				--	--
+			7	S	W_shtgn_Rb		64	 0
+			2	S	W_empty			32	-3
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSWEAP4 {
+			 1	S	W_empty			64	-1
+			 1	S	W_empty			40	 0
+			 1	S	W_shtgn_Rb		64	 0
+			 +	-	XXX				--	--
+			 7	S	W_shtgn_Rb		64	 0
+			 2	S	W_empty			32	-3
+			 +	-	XXX				--	--
+			10	S	W_shtgn_Rb		64	+3
+			 +	-	XXX				--	--
+			10	S	W_shtgn_Rb		64	+3
+			 +	-	XXX				--	--
+			10	S	W_shtgn_Rb		64	+3
+			 +	-	XXX				--	--
+			10	E	---				 0	--
+		}
+	}
+	group Combat {
+		trksound DSPLPAIN {
+			1	S	E_pain			64	 0
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSPLDTH {
+			1	S	E_die			64	+5
+			3	S	E_die			61	+4.8
+			5	S	E_die			58	+4.6
+			3	S	E_die			55	+4.4
+			4	S	E_die			52	+4.2
+			3	S	E_die			50	+4
+			5	S	E_die			47	+3.8
+			4	S	E_die			45	+3.6
+			5	S	E_die			42	+3.4
+			3	S	E_die			40	+3.2
+			5	S	E_die			38	+3
+			4	S	E_die			36	+2.8
+			3	S	E_die			35	+2.6
+			5	S	E_die			33	+2.4
+			3	S	E_die			31	+2.2
+			5	S	E_die			30	+2
+			4	S	E_die			28	+1.8
+			3	S	E_die			27	+1.6
+			5	S	E_die			25	+1.4
+			3	S	E_die			24	+1.2
+			5	S	E_die			23	+1
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSBAREXP {
+			1	S	V_explosion		64	+0
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+	}
+
+	group Machines {
+		trksound DSPDOORS {
+			1	S	V_doors_a		64	+0
+			+	-	V_doors_b		64	+0
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSPSTART {
+			1	S	V_doors_a		64	+0
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSPSTART2 {
+			1	S	V_doors_a		64	-8
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSPLIFT {
+			1	S	V_doors_a		64	-6
+			5	-	---				--	-5
+			5	-	---				--	-4
+			5	-	---				--	-3
+			5	-	---				--	-2
+			15	S	V_doors_a		48	-9
+			35	S	V_doors_a		48	-9
+			35	S	V_doors_a		48	-9
+			35	S	V_doors_a		48	-9
+			35	S	V_doors_a		48	-9
+			15	-	---				52	-10
+			5	-	---				56	-11
+			5	-	---				60	-12
+			5	-	---				64	-13
+			5	-	---				--	-14
+			5	-	---				--	-15
+			5	-	---				--	-16
+			5	-	---				--	-17
+			5	-	---				--	-18
+			10	S	V_doors_b		64	-4
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSPSTOP {
+			1	S	V_doors_b		64	+0
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSNOCARD {
+			1	S	V_pow			32	+10
+			+	-	---				--	 --
+			+	-	---				--	+15
+			+	-	---				--	 +5
+			+	-	---				--	+12
+			+	-	---				--	 --
+			+	-	---				 5	 --
+			+	-	---				 2	 --
+			+	-	---				 1	 --
+			+	-	---				--	 --
+			+	-	---				15	 +0
+			+	-	---				--	 --
+			+	-	---				--	 --
+			+	-	XXX				--	 --
+			+	E	---				 0	 --
+		}
+		trksound DSNOCARD2 {
+			1	S	W_empty			32	 +0
+			5	S	V_teleport		10	 +0
+			5	S	W_shtgn_Ra		64	 +0
+			5	S	V_select		32	 +5
+			+	-	---				--	 -5
+			+	-	---				--	+10
+			+	-	---				--	 +0
+			+	-	---				--	 +7
+			+	-	---				--	 -5
+			+	-	---				 5	 -5
+			+	-	---				 2	 -5
+			+	-	---				 1	 -5
+			+	-	---				--	 -5
+			+	-	---				 7	 +0
+			+	-	---				--	 --
+			+	-	---				10	 --
+			+	-	XXX				15	 --
+			+	E	---				 0	 --
+		}
+		trksound DSTELEPORT {
+			1	S	V_teleport		64	+10
+			5	S	V_teleport		64	0
+			+	-	XXX				--	--
+			+	E	---				 0	--
+			5	-	---				--	-10
+		}
+		trksound DSSELECT {
+			1	S	V_select		64	+0
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+		trksound DSLEVEND {
+			1	S	V_explosion		64	-12
+			+	-	XXX				--	--
+			+	E	---				 0	--
+		}
+	}
+
+
+  version Tut {
+
+	group "Tracked SFX Tutorial" {
+
+
+		trksound "Mute" {
+			1	- 	---				--  --		// nothing
+		}
+
+		trksound "Play only" {
+			1	S	W_pistol		64	+0		// "just" play a sample
+		}
+
+		trksound "Timed mute" {
+			 1	S	W_pistol		64	+0		// Play ...
+			25	-	---				 0	--		//	... then mute
+		}
+
+		trksound "Proper playback" {
+			1	S	W_pistol		64	+0		// Start
+			+	-	XXX				--	--		// Queue silence
+			+	E	---				 0	--		// End when silence plays
+		}
+
+		trksound "Interrupt sequence" {
+			 1	S	W_pistol		64	+0
+			 +	-	W_shotgun		--	--		// first started
+			 +	-	XXX				--	--		// second started
+			 +	E	---				 0	--
+		}
+
+		trksound "Interrupt sequence 2" {
+			 1	S	W_pistol		64	+0
+			 +	-	---				--	--		// 1st started
+			 +	-	---				32	--		// 2nd started
+			 +	-	---				16	--		// 3rd started
+			 +	-	XXX				 8	--		// 4th started
+			 +	E	---				 0	--		// silence started
+		}
+
+		trksound "Timed sequence" {
+			1	S	E_die			64	+0		// Start
+			+	-	XXX				--	--		// Queue silence
+			+	E	---				 0	--		// End when silence plays
+
+			5	-	---				--	-1
+			5	-	---				--	-2
+			5	-	---				--	-3
+			5	-	---				--	-4
+			5	-	---				--	-5
+			5	-	---				--	-6
+		}
+
+		trksound "Timed sequence 2" {
+			1	S	W_pistol		64	+0		// Start pistol sound
+			50	S	W_shotgun		64  +0		// Change to shotgun sound
+			50	S	XXX				--	--		// End
+			+	E	---				 0	--
+		}
+	}
+
+  }
+}
